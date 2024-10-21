@@ -1,0 +1,3 @@
+planka.shubhamtatvamasi.com {
+  reverse_proxy planka:1337
+}
