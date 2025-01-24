@@ -25,21 +25,21 @@ fi
 # Restore volumes
 if [ -f "$BACKUP_DIR/$USER_AVATARS_RESTORE" ]; then
   echo "[$(date)] Restoring user avatars..."
-  docker run --rm -v user-avatars:/data -v "$BACKUP_DIR:/backup" alpine tar xzf "/backup/$USER_AVATARS_RESTORE" -C /data
+  docker run --rm -v planka_user-avatars:/data -v "$BACKUP_DIR:/backup" alpine tar xzf "/backup/$USER_AVATARS_RESTORE" -C /data
 else
   echo "[$(date)] User avatars backup file not found!"
 fi
 
 if [ -f "$BACKUP_DIR/$PROJECT_BG_RESTORE" ]; then
   echo "[$(date)] Restoring project background images..."
-  docker run --rm -v project-background-images:/data -v "$BACKUP_DIR:/backup" alpine tar xzf "/backup/$PROJECT_BG_RESTORE" -C /data
+  docker run --rm -v planka_project-background-images:/data -v "$BACKUP_DIR:/backup" alpine tar xzf "/backup/$PROJECT_BG_RESTORE" -C /data
 else
   echo "[$(date)] Project background images backup file not found!"
 fi
 
 if [ -f "$BACKUP_DIR/$ATTACHMENTS_RESTORE" ]; then
   echo "[$(date)] Restoring attachments..."
-  docker run --rm -v attachments:/data -v "$BACKUP_DIR:/backup" alpine tar xzf "/backup/$ATTACHMENTS_RESTORE" -C /data
+  docker run --rm -v planka_attachments:/data -v "$BACKUP_DIR:/backup" alpine tar xzf "/backup/$ATTACHMENTS_RESTORE" -C /data
 else
   echo "[$(date)] Attachments backup file not found!"
 fi

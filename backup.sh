@@ -21,12 +21,12 @@ docker exec -t $POSTGRES_CONTAINER pg_dump -U postgres -d planka > "$BACKUP_DIR/
 
 # Backup volumes
 echo "[$(date)] Backing up user avatars..."
-docker run --rm -v user-avatars:/data -v "$BACKUP_DIR:/backup" alpine tar czf "/backup/$USER_AVATARS_BACKUP" -C /data .
+docker run --rm -v planka_user-avatars:/data -v "$BACKUP_DIR:/backup" alpine tar czf "/backup/$USER_AVATARS_BACKUP" -C /data .
 
 echo "[$(date)] Backing up project background images..."
-docker run --rm -v project-background-images:/data -v "$BACKUP_DIR:/backup" alpine tar czf "/backup/$PROJECT_BG_BACKUP" -C /data .
+docker run --rm -v planka_project-background-images:/data -v "$BACKUP_DIR:/backup" alpine tar czf "/backup/$PROJECT_BG_BACKUP" -C /data .
 
 echo "[$(date)] Backing up attachments..."
-docker run --rm -v attachments:/data -v "$BACKUP_DIR:/backup" alpine tar czf "/backup/$ATTACHMENTS_BACKUP" -C /data .
+docker run --rm -v planka_attachments:/data -v "$BACKUP_DIR:/backup" alpine tar czf "/backup/$ATTACHMENTS_BACKUP" -C /data .
 
 echo "[$(date)] Backup completed! Files saved in $BACKUP_DIR"
