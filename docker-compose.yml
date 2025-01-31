@@ -22,7 +22,7 @@ services:
     environment:
       - BASE_URL=https://planka.shubhamtatvamasi.com
       - DATABASE_URL=postgresql://postgres@postgres/planka
-      - SECRET_KEY=notsecretkey
+      - SECRET_KEY=${SECRET_KEY}
       - DEFAULT_ADMIN_EMAIL=shubham@shubhamtatvamasi.com
       - DEFAULT_ADMIN_PASSWORD=password
       - DEFAULT_ADMIN_NAME=Shubham Tatvamasi

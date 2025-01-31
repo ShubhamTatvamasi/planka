@@ -1,8 +1,8 @@
 # planka
 
-Past in your generated `SECRET_KEY`:
+Generate a secret key:
 ```bash
-openssl rand -hex 64
+echo "SECRET_KEY=$(openssl rand -hex 64)" > .env
 ```
 
 ---
